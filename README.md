@@ -1,6 +1,8 @@
 # GadikScript
 
-![alt text](https://github.com/Buor/GadikScript/blob/main/GS_Logo.png?raw=true)
+<p align="center">
+  <img src="https://github.com/Buor/GadikScript/blob/main/GS_500x.png?raw=true"/>
+</p>
 
 ## What is it for?
 
@@ -65,6 +67,7 @@ for (let n of arr) {
 ```
 
 And this is the console output:
+
 ```console
 5
 78
@@ -77,5 +80,9 @@ The element of array is 3!
 The element of array is 4!
 The element of array is 5!
 ```
+
 So that's it! Next step is to get acquainted with GS syntax!
-![alt text](https://github.com/Buor/GadikScript/blob/main/GS_Logo.jpg?raw=true)
+
+<p align="center">
+  <img src="https://github.com/Buor/GadikScript/blob/main/GS_Logo.jpg?raw=true"/>
+</p>
