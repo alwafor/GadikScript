@@ -1,14 +1,16 @@
 //Write your awesome GadikScript Code here!
 int a = 5;
-int y = 78;
-log(a);
-log(y);
+log("Integer value is " + a + "!");
+float b = 5,9694;
+log("Float value is " + b + "!");
+bool c = false;
+log("Boolean value is " + c + "!");
 
-int[] arr = [1,2,3,4,5,5,5];
 for n in 1..3 {
-   log("The number is " + n + "!");
+   log("One of three numbers is " + n + "!")
 }
 
-for n in arr {
-   log("The element of array is " + n + "!");
+int[] array = [1,6,8];
+for n in array {
+   log("This is one of the arrays numbers! " + n + "!")
 }

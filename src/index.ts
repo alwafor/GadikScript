@@ -26,6 +26,10 @@ function dealWithOneString(item: string) {
       res = varTypes["int[]"](item);
    } else if (item.startsWith("int")) {
       res = varTypes["int"](item);
+   } else if (item.startsWith("bool")) {
+      res = varTypes["bool"](item);
+   } else if (item.startsWith("float")) {
+      res = varTypes["float"](item);
    } else if (item.includes("log")) {
       res = globalMethods["log"](item);
    } else if (item.includes("for")) {
@@ -37,9 +41,13 @@ function dealWithOneString(item: string) {
 type ParserFn = (codeLine: string) => string;
 type CheckerFn = (expression: string) => void;
 
+type TVarExpression = [string, string];
 interface IVarTypes {
    "int[]": ParserFn;
    int: ParserFn;
+   float: ParserFn;
+   bool: ParserFn;
+   _extract_expression: (expression: string) => TVarExpression;
 }
 const varTypes: IVarTypes = {
    "int[]": (codeLine: string) => {
@@ -51,13 +59,32 @@ const varTypes: IVarTypes = {
       return `let ${varName} = ${arrayStr}`;
    },
    int: (codeLine: string) => {
-      let [_, varName, __, numberStr] = codeLine.split(" ");
-      checkers.int(numberStr);
-      return `let ${varName} = ${numberStr}`;
+      let [varName, value] = varTypes._extract_expression(codeLine);
+      checkers.int(value);
+      return `let ${varName} = ${value}`;
+   },
+   float: (codeLine: string) => {
+      let [varName, value] = varTypes._extract_expression(codeLine);
+      if(value.includes(',')) value = value.replace(',','.');
+      checkers.float(value);
+      return `let ${varName} = ${value}`;
+   },
+   bool: (codeLine: string) => {
+      let [varName, value] = varTypes._extract_expression(codeLine);
+      checkers.bool(value);
+      return `let ${varName} = ${value}`;
+   },
+   _extract_expression: (expression: string) => {
+      let [_, varName, __, value] = expression
+         .split(" ")
+         .filter((item) => item !== "");
+      return [varName, value];
    },
 };
 interface ICheckers {
    int: CheckerFn;
+   float: CheckerFn;
+   bool: CheckerFn;
 }
 const checkers: ICheckers = {
    int: (numberStr: string) => {
@@ -67,6 +94,21 @@ const checkers: ICheckers = {
       }
       if (num % 1 !== 0) {
          throw new Error("Integers cannot have a fractional part!" + lineIndex);
+      }
+   },
+   float: (value: string) => {
+      let num = +value;
+      if (isNaN(num)) {
+         throw new Error(`Number is not a float on line ${lineIndex + 1}!`);
+      }
+   },
+   bool: (value: string) => {
+      if (value !== "false" && value !== "true") {
+         throw new Error(
+            `Uncorrect boolean value on line ${
+               lineIndex + 1
+            }! Use true or false instead.`
+         );
       }
    },
 };

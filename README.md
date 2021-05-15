@@ -35,52 +35,54 @@ So, let's imagine that the following code is in the GadikScript.gs:
 ```gs
 //Write your awesome GadikScript Code here!
 int a = 5;
-int y = 78;
-log(a);
-log(y);
+log("Integer value is " + a + "!");
+float b = 5,9694;
+log("Float value is " + b + "!");
+bool c = false;
+log("Boolean value is " + c + "!");
 
-int[] arr = [1,2,3,4,5,5,5];
 for n in 1..3 {
-   log("The number is " + n + "!");
+   log("One of three numbers is " + n + "!")
 }
 
-for n in arr {
-   log("The element of array is " + n + "!");
+int[] array = [1,6,8];
+for n in array {
+   log("This is one of the arrays numbers! " + n + "!")
 }
 ```
 
 The JS output of this code will be:
 
 ```js
-//Write your awesome GadikScript Code here!
+//Write your awesome GadikScript Code here!;
 let a = 5;
-let y = 78;
-console.log(a);
-console.log(y);
-let arr = [1, 2, 3, 4, 5, 5, 5];
-for (let n = 1; n <= 3; ++n) {
-   console.log("The number is " + n + "!");
-}
-for (let n of arr) {
-   console.log("The element of array is " + n + "!");
-}
+console.log("Integer value is " + a + "!");
+let b = 5.9694;
+console.log("Float value is " + b + "!");
+let c = false;
+console.log("Boolean value is " + c + "!");
+for(let n = 1; n <= 3; ++n){
+   console.log("One of three numbers is " + n + "!");
+};
+let array = [1,6,8];
+for(let n of array){
+   console.log("This is one of the arrays numbers - " + n + "!");
+};
 ```
 
 And this is the console output:
 
 ```console
-5
-78
-The number is 1!
-The number is 2!
-The number is 3!
-The element of array is 1!
-The element of array is 2!
-The element of array is 3!
-The element of array is 4!
-The element of array is 5!
+Integer value is 5!
+Float value is 5.9694!
+Boolean value is false!
+One of three numbers is 1!
+One of three numbers is 2!
+One of three numbers is 3!
+This is one of the arrays numbers - 1!
+This is one of the arrays numbers - 6!
+This is one of the arrays numbers - 8!
 ```
-
 So that's it! Next step is to get acquainted with GS syntax!
 
 <p align="center">
