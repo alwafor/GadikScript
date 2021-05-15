@@ -63,7 +63,7 @@ const checkers: ICheckers = {
    int: (numberStr: string) => {
       let num = +numberStr.trim();
       if (!Number.isInteger(+numberStr.trim())) {
-         throw new Error(`Number is not an integer on line ${lineIndex+1}!`);
+         throw new Error(`Number is not an integer on line ${lineIndex + 1}!`);
       }
       if (num % 1 !== 0) {
          throw new Error("Integers cannot have a fractional part!" + lineIndex);
@@ -76,21 +76,19 @@ const globalLoops = {
       let commands = [];
       let [_, varName, __, interval] = codeLine.split(" ");
       let mainForLine = "";
-      if(interval.includes('..')) {
+      if (interval.includes("..")) {
          let intervalArr = interval.split("..");
          mainForLine = `for(let ${varName} = ${intervalArr[0]}; ${varName} <= ${intervalArr[1]}; ++${varName}){\n`;
-      }
-      else {
+      } else {
          mainForLine = `for(let ${varName} of ${interval}){\n`;
       }
-      
+
       while (!allLines[lineIndex].includes("}")) {
          lineIndex++;
          commands.push(allLines[lineIndex].trim());
          if (lineIndex > allLines.length) throw new Error("Unclosed for loop!");
       }
       commands.splice(-1);
-      console.log("ITEM:", commands);
       let dealedCommands = commands.map(dealWithOneString);
       return mainForLine + dealedCommands.join("") + "}";
    },
@@ -101,7 +99,7 @@ interface IGlobalMethods {
 }
 const globalMethods: IGlobalMethods = {
    log: (codeLine) => {
-      return "console.log(" + codeLine.slice(4,codeLine.length-1) + ")";
+      return "console.log(" + codeLine.slice(4, codeLine.length - 1) + ")";
    },
 };
 

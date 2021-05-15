@@ -3,8 +3,8 @@ int a = 5;
 int y = 78;
 log(a);
 log(y);
-int[] arr = [1,2,3,4,5,5,5];
 
+int[] arr = [1,2,3,4,5,5,5];
 for n in 1..3 {
    log("The number is " + n + "!");
 }
