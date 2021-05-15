@@ -22,10 +22,10 @@ It's pretty simple! All you need is to create dome html-element in the end of th
       <title>GadikScript example</title>
    </head>
    <body>
-      <div id="GadikScript" src="gadikScripts/GadikScript.gs"></div>
       <!--Your script-->
-      <script src="dist/index.js"></script>
+      <div id="GadikScript" src="gadikScripts/GadikScript.gs"></div>
       <!--GS translator-->
+      <script src="dist/index.js"></script>
    </body>
 </html>
 ```
