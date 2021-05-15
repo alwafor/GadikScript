@@ -10,7 +10,7 @@ GadikScript is actually a translator of GadikScript Syntax to raw JS (and TS in 
 
 ## How to use it?
 
-It's pretty simple! All you need is to create dome html-element in the end of the document, like div,span,etc. This element must have id "GadikScript" and src attribute, which refers to your GadikScript file (for example, script.gs). After you've done this, you need to add translator itself. It'll find all GadikScripts of html document and convert them to common JS. To use translator, you need to add script html tag with src attribute, which refers to index.js from GadikScript package. It lays in the dist folder. You can download just this one file, and rename it whatever you want. But the important thing is to include this script at the end of all included scripts. See right example of including below:
+It's pretty simple! All you need is to create DOM html-element in the end of the document, like div, span, etc. This element must have id "GadikScript" and src attribute, which refers to your GadikScript file (for example, script.gs). After you've done this, you need to add translator itself. It'll find all GadikScripts of html document and convert them to common JS. To use translator, you need to add script html tag with src attribute, which refers to index.js from GadikScript package. It lays in the dist folder. You can download just this one file, and rename it whatever you want. But the important thing is to include this script at the end of all included scripts. See right example of including below:
 
 ```html
 <!DOCTYPE html>
