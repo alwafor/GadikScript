@@ -79,6 +79,8 @@ The element of array is 2!
 The element of array is 3!
 The element of array is 4!
 The element of array is 5!
+The element of array is 5!
+The element of array is 5!
 ```
 
 So that's it! Next step is to get acquainted with GS syntax!
